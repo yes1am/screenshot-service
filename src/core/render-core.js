@@ -87,13 +87,13 @@ async function render (_opts = {}, req) {
     } else {
       logger.info(`Goto url ${opts.url} ..\n`)
       await pageInstance.goto(opts.url, opts.goto).catch(e => {
-        logger.error('Navigation failed: ' + e.message)
         const inflight = tracker.inflightRequests()
-        logger.error(inflight.map(request => `
+        throw new Error(`Navigation failed: ${e.message}
+        ${inflight.map(request => `
         url :${request.url()}
         resRemoteAdd:${JSON.stringify(request.response && request.response() && request.response().remoteAddress())}
         resStatus:${request.response && request.response() && request.response().status()}
-        `).join('\n'))
+        `).join('\n')}`)
       })
     }
 
@@ -132,14 +132,13 @@ async function render (_opts = {}, req) {
         element = await pageInstance.$(opts.screenshot.selector)
       }
       data = await element.screenshot(screenshotOpts)
+      logger.info('Rendering finish ..')
     }
   } catch (err) {
     logger.error(`Error when rendering page: ${err}`)
     logger.error(err.stack)
-    throw err
   }
 
-  logger.info('Rendering finish ..')
   tracker && tracker.dispose && tracker.dispose()
   recyclePage(page)
 
