@@ -62,7 +62,7 @@ http://localhost:8080/api/render?url=https://www.baidu.com&output=screenshot
 
     如 `&cookies[0][name]=theme&cookies[0][value]=light&cookies[0][url]=http://www.baidu.com&cookies[0][expires]=1554899743`
 
-    > cookie 不需要设置domain，只需设置name,value,url,expires等,其中url即为domain的值。参考: https://github.com/GoogleChrome/puppeteer/issues/1342#issuecomment-468968592  
+    > cookie 不需要设置domain，只需设置name,value,url,expires等,其中url即为domain的值，expires支持毫秒值。 参考: https://github.com/GoogleChrome/puppeteer/issues/1342#issuecomment-468968592  
 
 * output: 输出的文件类型，不设置则输出`pdf`,输出PNG示例如下:  
 
