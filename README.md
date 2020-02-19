@@ -46,7 +46,7 @@ http://localhost:8080/api/render?url=https://www.baidu.com&output=screenshot
 ----/ chrome-win-version
 ```  
 
-更多详情可参考之前的博客: [部署截图服务踩坑记录](https://github.com/yes1am/blog/issues/9)  
+更多详情可参考之前的博客: [部署截图服务踩坑记录](https://yes-1-am.gitbook.io/blog/web-kai-fa-guo-wang-gong-zuo-chen-dian/urltopdfapi-yu-fu-wu-bu-shu-cai-keng-ji-lu)  
 
 ### 2. 请求示例及参数解释  
 
